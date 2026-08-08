@@ -1,0 +1,48 @@
+generated: '2026-08-08'
+method: probed
+source: https://caam.tech/wp-json/ + live probes on 2026-08-08
+api: openapi/caamtech-wordpress-rest-openapi.yml
+notes: >-
+  Honest negatives dominate this file. CaaMTech runs no API programme, so it publishes no
+  versioning policy, no deprecation policy, no SLA and no status page. The only versioning
+  signal is the WordPress namespace in the URI path. No `StatusPage` or `Deprecation` pointer
+  is wired in apis.yml, because neither exists.
+versioning:
+  scheme: uri-path-namespace
+  current: wp/v2
+  policy_url: null
+  policy_published: false
+  namespaces:
+  - {namespace: 'wp/v2', operations: 226}
+  - {namespace: 'akismet/v1', operations: 18}
+  - {namespace: 'wp-abilities/v1', operations: 10}
+  - {namespace: 'objectcache/v1', operations: 8}
+  - {namespace: 'regenerate-thumbnails/v1', operations: 8}
+  - {namespace: 'wpforms/v1', operations: 8}
+  - {namespace: 'wp-site-health/v1', operations: 8}
+  - {namespace: 'mcp', operations: 4}
+  - {namespace: 'wp-block-editor/v1', operations: 4}
+  - {namespace: 'oembed/1.0', operations: 3}
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  published: false
+  probed:
+  - {url: 'https://status.caam.tech/', result: NXDOMAIN}
+changelog:
+  api_changelog: null
+  company_updates: https://caam.tech/updates/
+  note: >-
+    caam.tech/updates/ is a company news feed (research announcements, funding, personnel) —
+    it is not an API changelog, so no `ChangeLog` pointer is wired.
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in the derived OpenAPI carries `deprecated: true`; the WordPress route index
+  does not expose deprecation state.

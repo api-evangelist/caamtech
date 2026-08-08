@@ -1,0 +1,66 @@
+generated: '2026-08-08'
+method: derived
+source: mcp/caamtech-mcp.yml + openapi/caamtech-wordpress-rest-openapi.yml
+notes: >-
+  Emitted because both an MCP server and an OpenAPI exist for this host — but the crosswalk is
+  deliberately EMPTY on the MCP side. caam.tech's MCP adapter refuses anonymous `tools/list`
+  with HTTP 401, so no real tool names or inputSchemas are known. Mapping tools by guesswork
+  would fabricate the exact thing this artifact is supposed to prove, so `crosswalk[]` stays
+  empty and the REST side is recorded as unbound. Re-run with an authenticated
+  introspection to populate it.
+surfaces:
+  openapi:
+    file: openapi/caamtech-wordpress-rest-openapi.yml
+    origin: derived from https://caam.tech/wp-json/ (the site's own published route index)
+    gated: false
+    base_url: https://caam.tech/wp-json
+  mcp:
+    url: https://caam.tech/wp-json/mcp/mcp-adapter-default-server
+    gated: true
+    gate: 'HTTP 401 rest_forbidden on tools/list'
+  graphql:
+    present: false
+    note: no /graphql surface — https://caam.tech/graphql returns 404
+crosswalk: []
+mcp_only: []
+rest_only:
+- capability: WordPress content (posts, pages, media, categories, tags, comments, users, menus, templates)
+  namespace: wp/v2
+  operations: 226
+- capability: Akismet anti-spam plugin administration
+  namespace: akismet/v1
+  operations: 18
+- capability: WordPress Abilities API registry (the likely backing registry for the MCP tools)
+  namespace: wp-abilities/v1
+  operations: 10
+- capability: Object cache administration
+  namespace: objectcache/v1
+  operations: 8
+- capability: Thumbnail regeneration
+  namespace: regenerate-thumbnails/v1
+  operations: 8
+- capability: WPForms form administration
+  namespace: wpforms/v1
+  operations: 8
+- capability: WordPress site health checks
+  namespace: wp-site-health/v1
+  operations: 8
+- capability: MCP adapter transport routes
+  namespace: mcp
+  operations: 4
+- capability: Block editor services
+  namespace: wp-block-editor/v1
+  operations: 4
+- capability: oEmbed discovery and proxy
+  namespace: oembed/1.0
+  operations: 3
+- capability: Root discovery and batch
+  namespace: root
+  operations: 2
+coverage:
+  tools_named: 0
+  tools_bound: 0
+  mcp_only: 0
+  rest_operations_total: 299
+  rest_operations_with_tool: 0
+  reason_unbound: mcp-tools-list-auth-gated

@@ -1,0 +1,73 @@
+generated: '2026-08-08'
+method: derived
+source: openapi/caamtech-wordpress-rest-openapi.yml + live probes on 2026-08-08
+notes: >-
+  Standards conformance derived from the observed behaviour of the WordPress REST API on
+  caam.tech. CaaMTech makes no compliance or certification claims anywhere on its site, so no
+  `Compliance` or `TrustCenter` pointer is wired in apis.yml.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: >-
+    openapi/caamtech-wordpress-rest-openapi.yml — derived by API Evangelist from the site's
+    own published route index; the provider does not publish an OpenAPI.
+  provider_published: false
+- id: http-basic-auth
+  conforms: true
+  evidence: WordPress Application Passwords use HTTP Basic; advertised in the /wp-json/ discovery document.
+- id: oauth2
+  conforms: false
+  evidence: '/.well-known/oauth-authorization-server returns 404; no oauth2 securityScheme'
+- id: openid-connect
+  conforms: false
+  evidence: '/.well-known/openid-configuration returns 404'
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use the WordPress envelope {code, message, data.status} with media type
+    application/json, not application/problem+json.
+- id: rfc8288-web-linking
+  conforms: true
+  evidence: 'collection responses return Link: <...>; rel="next" (observed on /wp/v2/posts)'
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: '/.well-known/security.txt returns 404'
+- id: rfc8615-well-known
+  conforms: false
+  evidence: no /.well-known/ document of any kind returns 200 (see well-known/caamtech-well-known.yml)
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no Sunset or Deprecation header observed; no deprecation policy published
+- id: hal-hypermedia
+  conforms: partial
+  evidence: >-
+    Resources carry a `_links` object with self/collection/about relations — HAL-shaped, but
+    not served as application/hal+json.
+- id: model-context-protocol
+  conforms: unknown
+  evidence: >-
+    A WordPress MCP Adapter endpoint is deployed at /wp-json/mcp/mcp-adapter-default-server,
+    but anonymous tools/list returns 401 so protocol conformance could not be verified.
+- id: oembed
+  conforms: true
+  evidence: 'oembed/1.0 namespace present; /wp-json/oembed/1.0/embed returns 200 JSON'
+- id: cors
+  conforms: true
+  evidence: 'Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link'
+- id: tls-1.3
+  conforms: true
+  evidence: security/caamtech-domain-security.yml — TLSv1.3 negotiated on caam.tech
+- id: hsts
+  conforms: false
+  evidence: no Strict-Transport-Security header on caam.tech
+- id: dnssec
+  conforms: false
+  evidence: caam.tech is not DNSSEC-signed
+compliance_program:
+  published: false
+  certifications: []
+  note: >-
+    No SOC 2, ISO 27001, HIPAA, GDPR or trust-centre page exists on caam.tech
+    (probe-security-programs.py returned vdp=none trust=none). As a pre-clinical drug
+    discovery company its regulatory surface is FDA/DEA, not information-security
+    certification — and none of that is an API-facing claim.

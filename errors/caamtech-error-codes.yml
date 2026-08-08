@@ -1,0 +1,64 @@
+generated: '2026-08-08'
+method: probed
+source: live error responses observed against https://caam.tech/wp-json on 2026-08-08
+api: openapi/caamtech-wordpress-rest-openapi.yml
+format: wordpress-rest
+rfc9457: false
+notes: >-
+  CaaMTech publishes no error reference. Every entry below was observed live — the code,
+  message and status are copied verbatim from the response body this host returned. No error
+  code is listed that was not actually triggered; the WordPress core registry is far larger,
+  but the unobserved remainder is not asserted here.
+envelope:
+  media_type: application/json
+  shape:
+    code: machine-readable error slug
+    message: human-readable sentence
+    data.status: HTTP status code, repeated in the body
+    data.params: 'per-parameter messages (validation errors only)'
+    data.details: 'per-parameter {code, message} detail (validation errors only)'
+  example: '{"code":"rest_forbidden","message":"Sorry, you are not allowed to do that.","data":{"status":401}}'
+errors:
+- code: rest_invalid_param
+  status: 400
+  title: Invalid parameter
+  message: 'Invalid parameter(s): per_page'
+  remediation: >-
+    Correct the named parameter against the constraint returned in data.details — the
+    constraint text is machine-usable (e.g. per_page must be between 1 and 100 inclusive).
+  observed: https://caam.tech/wp-json/wp/v2/posts?per_page=200
+  nested_codes: [rest_out_of_bounds]
+- code: rest_forbidden
+  status: 401
+  title: Not permitted
+  message: Sorry, you are not allowed to do that.
+  remediation: >-
+    Authenticate with a WordPress Application Password (HTTP Basic) or a logged-in cookie
+    plus X-WP-Nonce. Returned for administrative routes and for the MCP adapter route.
+  observed:
+  - https://caam.tech/wp-json/wp/v2/settings
+  - https://caam.tech/wp-json/mcp/mcp-adapter-default-server
+- code: rest_forbidden_context
+  status: 401
+  title: Context not permitted
+  message: Sorry, you are not allowed to edit this user.
+  remediation: >-
+    Drop `context=edit` (use the default `view`) or authenticate as a user with edit
+    capability for the resource.
+  observed:
+  - https://caam.tech/wp-json/wp/v2/users/1?context=edit
+  - https://caam.tech/wp-json/wp/v2/posts?context=edit
+- code: rest_post_invalid_id
+  status: 404
+  title: Invalid post ID
+  message: Invalid post ID.
+  remediation: Resolve a real id from the collection route before requesting the item route.
+  observed: https://caam.tech/wp-json/wp/v2/posts/999999
+edge_behaviour:
+  note: >-
+    caam.tech sits behind Cloudflare. Some non-browser requests never reach WordPress and get
+    an HTML Cloudflare block page instead of the JSON envelope — observed on a JSON-RPC
+    `initialize` POST to the MCP route and on a plain GET of /robots.txt. Clients must be
+    prepared for an HTML body on a non-2xx.
+  status_observed: 403
+  content_type: text/html

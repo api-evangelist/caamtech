@@ -1,0 +1,179 @@
+generated: '2026-08-08'
+method: probed
+source: >-
+  https://caam.tech/wp-json/wp/v2/types, /wp/v2/taxonomies and a live /wp/v2/posts?_embed
+  response, observed 2026-08-08
+api: openapi/caamtech-wordpress-rest-openapi.yml
+notes: >-
+  Entity graph read from the live API, not guessed. The registered post types, taxonomies and
+  their `rest_base` values come from the site's own /types and /taxonomies endpoints; the
+  relationships come from the id-reference fields and `_links` relations present on a real
+  post resource.
+entities:
+- name: post
+  rest_base: posts
+  path: /wp/v2/posts
+  domain: content
+  description: CaaMTech research updates and announcements — 47 published at time of probe.
+  id_field: id
+  key_fields: [id, slug, date, modified, title, content, excerpt, link, status, author,
+    featured_media, categories, tags, meta, acf]
+  anonymous_read: true
+- name: page
+  rest_base: pages
+  path: /wp/v2/pages
+  domain: content
+  description: Static site pages (home, about, team, contact, updates, team member profiles).
+  id_field: id
+  anonymous_read: true
+- name: attachment
+  rest_base: media
+  path: /wp/v2/media
+  domain: content
+  description: Images and PDFs attached to posts and pages.
+  id_field: id
+  anonymous_read: true
+- name: category
+  rest_base: categories
+  path: /wp/v2/categories
+  domain: taxonomy
+  id_field: id
+  anonymous_read: true
+- name: post_tag
+  rest_base: tags
+  path: /wp/v2/tags
+  domain: taxonomy
+  id_field: id
+  anonymous_read: true
+- name: user
+  rest_base: users
+  path: /wp/v2/users
+  domain: identity
+  id_field: id
+  anonymous_read: partial
+  note: '`context=edit` is refused anonymously with rest_forbidden_context (401)'
+- name: comment
+  rest_base: comments
+  path: /wp/v2/comments
+  domain: content
+  id_field: id
+  anonymous_read: true
+- name: nav_menu_item
+  rest_base: menu-items
+  path: /wp/v2/menu-items
+  domain: navigation
+  id_field: id
+- name: nav_menu
+  rest_base: menus
+  path: /wp/v2/menus
+  domain: navigation
+  id_field: id
+- name: wp_block
+  rest_base: blocks
+  path: /wp/v2/blocks
+  domain: editor
+  id_field: id
+- name: wp_template
+  rest_base: templates
+  path: /wp/v2/templates
+  domain: editor
+  id_field: id
+- name: wp_template_part
+  rest_base: template-parts
+  path: /wp/v2/template-parts
+  domain: editor
+  id_field: id
+- name: wp_global_styles
+  rest_base: global-styles
+  path: /wp/v2/global-styles
+  domain: editor
+  id_field: id
+- name: wp_navigation
+  rest_base: navigation
+  path: /wp/v2/navigation
+  domain: editor
+  id_field: id
+- name: wp_font_family
+  rest_base: font-families
+  path: /wp/v2/font-families
+  domain: editor
+  id_field: id
+- name: wp_font_face
+  rest_base: font-families/{font_family_id}/font-faces
+  path: /wp/v2/font-families/{font_family_id}/font-faces
+  domain: editor
+  id_field: id
+- name: ability
+  rest_base: wp-abilities/v1
+  path: /wp-abilities/v1
+  domain: agent
+  description: >-
+    WordPress Abilities API registry — the capability surface the deployed MCP adapter is
+    expected to expose. Index is readable anonymously.
+relationships:
+- from: post
+  to: user
+  kind: belongs_to
+  via: author
+  link_rel: author
+- from: post
+  to: attachment
+  kind: has_one
+  via: featured_media
+  link_rel: 'wp:featuredmedia'
+- from: post
+  to: attachment
+  kind: has_many
+  link_rel: 'wp:attachment'
+- from: post
+  to: category
+  kind: has_many
+  via: categories
+  link_rel: 'wp:term'
+- from: post
+  to: post_tag
+  kind: has_many
+  via: tags
+  link_rel: 'wp:term'
+- from: post
+  to: comment
+  kind: has_many
+  link_rel: replies
+- from: post
+  to: post
+  kind: has_many
+  link_rel: version-history
+  note: revisions at /wp/v2/posts/{id}/revisions (authenticated)
+- from: comment
+  to: post
+  kind: belongs_to
+  via: post
+- from: comment
+  to: user
+  kind: belongs_to
+  via: author
+- from: attachment
+  to: post
+  kind: belongs_to
+  via: post
+- from: category
+  to: category
+  kind: belongs_to
+  via: parent
+- from: page
+  to: page
+  kind: belongs_to
+  via: parent
+- from: nav_menu_item
+  to: nav_menu
+  kind: belongs_to
+  via: menus
+- from: wp_font_face
+  to: wp_font_family
+  kind: belongs_to
+  via: font_family_id
+custom_fields:
+  acf: >-
+    Posts carry an `acf` object (Advanced Custom Fields). Its keys are site-specific and were
+    not enumerated here beyond their presence on the resource.
+  meta: standard WordPress registered post meta object

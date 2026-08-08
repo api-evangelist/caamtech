@@ -1,0 +1,86 @@
+generated: '2026-08-08'
+method: probed
+source: https://caam.tech/wp-json/ (route index) + live response headers observed 2026-08-08
+api: openapi/caamtech-wordpress-rest-openapi.yml
+notes: >-
+  CaaMTech publishes no API conventions documentation. Everything below was observed directly
+  against the live host or read out of the route index the site publishes — it describes the
+  WordPress REST API conventions as this deployment actually behaves, not a CaaMTech contract.
+authentication:
+  style: none-for-reads
+  anonymous_read: true
+  write_schemes: [WordPress Application Password (HTTP Basic), logged-in cookie + X-WP-Nonce]
+  authorization_endpoint: https://caam.tech/wp-admin/authorize-application.php
+  artifact: authentication/caamtech-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency contract. The WordPress REST API defines no idempotency key header or
+    request-replay semantics, and none is advertised in the route index. Deliberately NOT
+    wired as `type: Idempotency` in apis.yml.
+pagination:
+  style: page-number
+  parameters:
+    page: {in: query, type: integer, default: 1, minimum: 1}
+    per_page: {in: query, type: integer, default: 10, minimum: 1, maximum: 100}
+    offset: {in: query, type: integer, note: alternative to page}
+    search: {in: query, type: string}
+    order: {in: query, enum: [asc, desc]}
+    orderby: {in: query, type: string}
+  response_headers:
+    total: X-WP-Total
+    total_pages: X-WP-TotalPages
+  link_header: 'RFC 8288 Link header with rel="next" / rel="prev"'
+  observed:
+    url: https://caam.tech/wp-json/wp/v2/posts?per_page=2&page=1
+    x_wp_total: 47
+    x_wp_totalpages: 24
+    link: '<https://caam.tech/wp-json/wp/v2/posts?per_page=2&page=2>; rel="next"'
+field_selection:
+  sparse_fields:
+    parameter: _fields
+    note: 'comma-separated list, e.g. ?_fields=id,slug,link,title'
+  embedding:
+    parameter: _embed
+    note: inlines linked resources (author, featured media, terms) under `_embedded`
+  context:
+    parameter: context
+    enum: [view, embed, edit]
+    default: view
+    note: '`edit` requires authentication and returns raw fields'
+hypermedia:
+  style: HAL-like `_links`
+  note: every resource carries a `_links` object with self/collection/about/author/replies relations
+versioning:
+  scheme: uri-path-namespace
+  current: wp/v2
+  namespaces: [oembed/1.0, akismet/v1, objectcache/v1, regenerate-thumbnails/v1, wpforms/v1,
+    mcp, wp/v2, wp-site-health/v1, wp-block-editor/v1, wp-abilities/v1]
+  artifact: lifecycle/caamtech-lifecycle.yml
+error_envelope:
+  shape: '{"code": "<string>", "message": "<string>", "data": {"status": <int>}}'
+  media_type: application/json
+  rfc9457: false
+  artifact: errors/caamtech-error-codes.yml
+rate_limiting:
+  documented: false
+  headers_observed: []
+  note: >-
+    No rate-limit headers were returned on any probed request. The host does sit behind
+    Cloudflare, which challenged/blocked some non-browser requests (a JSON-RPC `initialize`
+    POST and a plain robots.txt fetch both received a Cloudflare block page), so throttling
+    is enforced at the edge rather than signalled in the API response.
+caching:
+  cache_control: 'no-store, no-cache, must-revalidate, max-age=0'
+  x_robots_tag: noindex
+cors:
+  access_control_allow_headers: [Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type]
+  access_control_expose_headers: [X-WP-Total, X-WP-TotalPages, Link]
+request_tracing:
+  request_id_header: null
+  documented: false
+batch:
+  endpoint: /batch/v1
+  method: POST
+  note: WordPress core batch endpoint is exposed; requires authentication for write requests

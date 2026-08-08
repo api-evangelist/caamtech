@@ -1,0 +1,29 @@
+generated: '2026-08-08'
+method: generated
+source: >-
+  Authored by API Evangelist against openapi/caamtech-wordpress-rest-openapi.yml. CaaMTech
+  publishes no AGENTS.md, no skills and no agent guidance of any kind — probed 2026-08-08.
+api: openapi/caamtech-wordpress-rest-openapi.yml
+notes: >-
+  Only two skills, deliberately. The callable surface on caam.tech is a read-only WordPress
+  content API; there is no product flow to package. Both skills are read-only and explicitly
+  forbid write attempts and credential guessing.
+skills:
+- file: caamtech-read-research-updates.md
+  name: Read CaaMTech research updates
+  description: >-
+    Retrieve CaaMTech's published research announcements as structured JSON, with
+    pagination, field selection and search. No credentials required.
+  api: openapi/caamtech-wordpress-rest-openapi.yml
+  auth: none
+  operations: [get_wp_v2_posts, get_wp_v2_posts_id, get_wp_v2_categories, get_wp_v2_tags,
+    get_wp_v2_search]
+- file: caamtech-discover-site-surface.md
+  name: Discover the CaaMTech machine-readable surface
+  description: >-
+    Enumerate the WordPress REST namespaces, content types, taxonomies, media and the
+    deployed (authenticated) MCP adapter, starting from the site's own discovery document.
+  api: openapi/caamtech-wordpress-rest-openapi.yml
+  auth: none for discovery; WordPress credential required for the MCP route
+  operations: [get_root, get_wp_v2_types, get_wp_v2_taxonomies, get_wp_v2_media,
+    get_wp_abilities_v1_abilities, get_mcp, post_mcp_mcp_adapter_default_server]

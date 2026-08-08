@@ -1,0 +1,47 @@
+generated: '2026-08-08'
+method: probed
+source: https://caam.tech/wp-json/
+derived_from: openapi/caamtech-wordpress-rest-openapi.yml
+notes: >-
+  CaaMTech publishes no developer authentication documentation. The auth model below is the
+  one the site's own WordPress REST discovery document advertises. Anonymous GET requests to
+  the read-only content routes succeed without any credential; every write route and the MCP
+  adapter route require a WordPress credential.
+authorization_endpoint: https://caam.tech/wp-admin/authorize-application.php
+x-evidence:
+- fetched: '2026-08-08'
+  url: https://caam.tech/wp-json/
+  http_status: 200
+  finding: >-
+    `authentication` block advertises application-passwords with the authorization endpoint
+    https://caam.tech/wp-admin/authorize-application.php
+- fetched: '2026-08-08'
+  url: https://caam.tech/wp-json/wp/v2/posts?per_page=1
+  http_status: 200
+  finding: anonymous read succeeds with no credential
+- fetched: '2026-08-08'
+  url: https://caam.tech/wp-json/mcp/mcp-adapter-default-server
+  http_status: 401
+  finding: 'MCP tools/list returns {"code":"rest_forbidden","data":{"status":401}}'
+anonymous_read: true
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - cookie
+schemes:
+- name: applicationPassword
+  type: http
+  scheme: basic
+  description: WordPress Application Passwords (HTTP Basic). The site advertises the authorization
+    endpoint at https://caam.tech/wp-admin/authorize-application.php
+  sources:
+  - openapi/caamtech-wordpress-rest-openapi.yml
+- name: cookieAuth
+  type: apiKey
+  in: cookie
+  parameter: wordpress_logged_in
+  description: WordPress logged-in cookie plus an X-WP-Nonce header (first-party only).
+  sources:
+  - openapi/caamtech-wordpress-rest-openapi.yml

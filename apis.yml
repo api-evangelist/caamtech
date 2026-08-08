@@ -1,18 +1,59 @@
 aid: caamtech
 name: CaaMTech
-description: 'CaaMTech is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'CaaMTech is a pharmaceutical drug discovery company in Issaquah, Washington,
+  founded by Dr. Andrew Chadeayne, engineering next-generation psychedelic-inspired
+  small-molecule therapeutics for mental health conditions. It synthesizes and characterizes
+  novel tryptamines, screens natural and synthetic compounds for safety and efficacy,
+  publishes fundamental crystallographic and pharmacological research, and builds a
+  patent portfolio around the results. CaaMTech operates no developer program and
+  publishes no product API; the only machine-readable surface on caam.tech is the
+  standard WordPress REST API that serves the company site, which does make its research
+  updates, pages and media programmatically readable without credentials, alongside an
+  authenticated WordPress MCP adapter endpoint.'
 url: https://raw.githubusercontent.com/api-evangelist/caamtech/refs/heads/main/apis.yml
+image: https://caam.tech/wp-content/uploads/2019/12/cropped-caamtech-logo-on-green-2400-square.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: enriched
+x-tier-reason: local-enrichment-pass 2026-08-08
 specificationVersion: '0.20'
 created: '2026-08-08'
 modified: '2026-08-08'
 tags:
 - Company
-apis: []
+- Pharmaceuticals
+- Life Sciences
+- Drug Discovery
+- Biotechnology
+- Chemistry
+- Mental Health
+- Research
+- Psychedelics
+- WordPress
+apis:
+- aid: caamtech-wordpress-rest
+  name: CaaMTech WordPress REST API
+  description: 'The public WordPress REST API served by caam.tech at /wp-json/. This
+    is not a CaaMTech product API — it is the content API of the company web site,
+    exposed publicly by WordPress core and its plugins. Anonymous reads return the
+    company''s published research updates, pages, categories, tags, media and site
+    metadata as JSON; write operations and the MCP adapter require WordPress
+    Application Password or cookie authentication.'
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - Content
+  - WordPress
+  - Research Updates
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-wordpress-rest-openapi.yml
+  - type: MCPServer
+    url: mcp/caamtech-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+  - type: Overlay
+    url: overlays/caamtech-wordpress-rest-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +61,33 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/caamtech_stock/
+  url: https://caam.tech/
+- type: Blog
+  url: https://caam.tech/updates/
+- type: BlogRSS
+  url: https://caam.tech/feed/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/caamtech
+- type: Authentication
+  url: authentication/caamtech-authentication.yml
+- type: Conventions
+  url: conventions/caamtech-conventions.yml
+- type: ErrorCatalog
+  url: errors/caamtech-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/caamtech-lifecycle.yml
+- type: Conformance
+  url: conformance/caamtech-conformance.yml
+- type: DataModel
+  url: data-model/caamtech-data-model.yml
+- type: DomainSecurity
+  url: security/caamtech-domain-security.yml
+- type: LLMsTxt
+  url: llms/caamtech-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-08-08'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

@@ -1,0 +1,69 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the CaaMTech WordPress REST API
+  version: 1.0.0
+extends: openapi/caamtech-wordpress-rest-openapi.yml
+x-provenance:
+  generated: '2026-08-08'
+  method: generated
+  source: >-
+    API Evangelist enrichment pass, 2026-08-08. Records what we added on top of the route
+    index published at https://caam.tech/wp-json/ — nothing here originates with CaaMTech.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: caamtech
+    x-apievangelist-reviewed: '2026-08-08'
+    x-apievangelist-provider-authored: false
+    x-apievangelist-note: >-
+      Derived from the WordPress REST discovery document the site publishes. CaaMTech runs no
+      developer programme; this is the CMS content API of the company web site.
+- target: $.info
+  update:
+    x-artifacts:
+      authentication: authentication/caamtech-authentication.yml
+      conventions: conventions/caamtech-conventions.yml
+      errors: errors/caamtech-error-codes.yml
+      lifecycle: lifecycle/caamtech-lifecycle.yml
+      conformance: conformance/caamtech-conformance.yml
+      data_model: data-model/caamtech-data-model.yml
+      mcp: mcp/caamtech-mcp.yml
+      tool_crosswalk: mcp/caamtech-tool-crosswalk.yml
+      domain_security: security/caamtech-domain-security.yml
+      well_known: well-known/caamtech-well-known.yml
+      skills: skills/_index.yml
+- target: $.info
+  update:
+    x-conventions:
+      pagination:
+        style: page-number
+        params: [page, per_page, offset]
+        headers: [X-WP-Total, X-WP-TotalPages]
+        link_header: true
+      sparse_fields: _fields
+      embedding: _embed
+      context: [view, embed, edit]
+      idempotency: none
+      rate_limit_headers: none
+- target: $.info
+  update:
+    x-error-envelope:
+      media_type: application/json
+      shape: '{"code":"<slug>","message":"<sentence>","data":{"status":<int>}}'
+      rfc9457: false
+      catalog: errors/caamtech-error-codes.yml
+- target: $.servers[0]
+  update:
+    x-edge: >-
+      Fronted by Cloudflare. Some non-browser requests are answered with an HTML block page
+      instead of the JSON envelope; clients must tolerate a non-JSON body on a non-2xx.
+- target: $.paths['/wp/v2/posts'].get
+  update:
+    x-apievangelist-use-case: >-
+      The single most useful anonymous operation on this host — it returns CaaMTech's
+      published research updates and announcements as structured JSON.
+- target: $.paths['/mcp/mcp-adapter-default-server'].post
+  update:
+    x-apievangelist-note: >-
+      Live WordPress MCP Adapter transport. Anonymous JSON-RPC tools/list returns 401
+      rest_forbidden, so the tool set is not publicly introspectable.
