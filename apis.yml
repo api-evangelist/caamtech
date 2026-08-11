@@ -31,35 +31,149 @@ tags:
 - Psychedelics
 - WordPress
 apis:
-- aid: caamtech-wordpress-rest
-  name: CaaMTech WordPress REST API
-  description: 'The public WordPress REST API served by caam.tech at /wp-json/. This
-    is not a CaaMTech product API — it is the content API of the company web site,
-    exposed publicly by WordPress core and its plugins. Anonymous reads return the
-    company''s published research updates, pages, categories, tags, media and site
-    metadata as JSON; write operations and the MCP adapter require WordPress
-    Application Password or cookie authentication.'
+- aid: caamtech:caamtech-akismet-v1-api
+  name: CaaMTech Akismet/v1 API
+  description: The akismet/v1 API from CaaMTech — 7 operation(s) for akismet/v1.
   humanURL: https://caam.tech/
   baseURL: https://caam.tech/wp-json
   tags:
-  - Content
-  - WordPress
-  - Research Updates
+  - akismet/v1
   properties:
   - type: OpenAPI
-    url: openapi/caamtech-wordpress-rest-openapi.yml
-  - type: MCPServer
-    url: mcp/caamtech-mcp.yml
+    url: openapi/caamtech-akismet-v1-api-openapi.yml
   - type: ToolCrosswalk
     url: mcp/caamtech-tool-crosswalk.yml
-  - type: Overlay
-    url: overlays/caamtech-wordpress-rest-overlay.yaml
+- aid: caamtech:caamtech-mcp-api
+  name: CaaMTech MCP API
+  description: The mcp API from CaaMTech — 2 operation(s) for mcp.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-mcp-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-objectcache-v1-api
+  name: CaaMTech Objectcache/v1 API
+  description: The objectcache/v1 API from CaaMTech — 5 operation(s) for objectcache/v1.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - objectcache/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-objectcache-v1-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-oembed-1-0-api
+  name: CaaMTech Oembed/1.0 API
+  description: The oembed/1.0 API from CaaMTech — 3 operation(s) for oembed/1.0.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - oembed/1.0
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-oembed-1-0-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-regenerate-thumbnails-v1-api
+  name: CaaMTech Regenerate Thumbnails/v1 API
+  description: >-
+    The regenerate-thumbnails/v1 API from CaaMTech — 4 operation(s) for regenerate-thumbnails/v1.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - regenerate-thumbnails/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-regenerate-thumbnails-v1-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-root-api
+  name: CaaMTech Root API
+  description: The root API from CaaMTech — 2 operation(s) for root.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - root
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-root-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-wp-abilities-v1-api
+  name: CaaMTech Wp Abilities/v1 API
+  description: The wp-abilities/v1 API from CaaMTech — 6 operation(s) for wp-abilities/v1.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - wp-abilities/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-wp-abilities-v1-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-wp-block-editor-v1-api
+  name: CaaMTech Wp Block Editor/v1 API
+  description: The wp-block-editor/v1 API from CaaMTech — 4 operation(s) for wp-block-editor/v1.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - wp-block-editor/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-wp-block-editor-v1-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-wp-site-health-v1-api
+  name: CaaMTech Wp Site Health/v1 API
+  description: The wp-site-health/v1 API from CaaMTech — 8 operation(s) for wp-site-health/v1.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - wp-site-health/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-wp-site-health-v1-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-wp-v2-api
+  name: CaaMTech Wp/v2 API
+  description: The wp/v2 API from CaaMTech — 106 operation(s) for wp/v2.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - wp/v2
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-wp-v2-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
+- aid: caamtech:caamtech-wpforms-v1-api
+  name: CaaMTech Wpforms/v1 API
+  description: The wpforms/v1 API from CaaMTech — 8 operation(s) for wpforms/v1.
+  humanURL: https://caam.tech/
+  baseURL: https://caam.tech/wp-json
+  tags:
+  - wpforms/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/caamtech-wpforms-v1-api-openapi.yml
+  - type: ToolCrosswalk
+    url: mcp/caamtech-tool-crosswalk.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/caamtech-mcp.yml
+- type: Overlay
+  url: overlays/caamtech-wordpress-rest-overlay.yaml
 - type: Website
   url: https://caam.tech/
 - type: Blog
