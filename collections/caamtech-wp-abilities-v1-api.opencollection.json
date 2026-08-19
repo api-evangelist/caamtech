@@ -1,0 +1,279 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Wp Abilities/v1 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "wp-abilities/v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /wp-abilities/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /wp-abilities/v1"
+        },
+        {
+          "info": {
+            "name": "GET /wp-abilities/v1/categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/categories",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to be returned in result set."
+              }
+            ]
+          },
+          "docs": "GET /wp-abilities/v1/categories"
+        },
+        {
+          "info": {
+            "name": "GET /wp-abilities/v1/categories/{slug}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/categories/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /wp-abilities/v1/categories/{slug}"
+        },
+        {
+          "info": {
+            "name": "GET /wp-abilities/v1/abilities/{name}/run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities/:name/run",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "input",
+                "value": "",
+                "type": "query",
+                "description": "Input parameters for the ability execution."
+              }
+            ]
+          },
+          "docs": "GET /wp-abilities/v1/abilities/{name}/run"
+        },
+        {
+          "info": {
+            "name": "POST /wp-abilities/v1/abilities/{name}/run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities/:name/run",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /wp-abilities/v1/abilities/{name}/run"
+        },
+        {
+          "info": {
+            "name": "PUT /wp-abilities/v1/abilities/{name}/run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities/:name/run",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /wp-abilities/v1/abilities/{name}/run"
+        },
+        {
+          "info": {
+            "name": "PATCH /wp-abilities/v1/abilities/{name}/run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities/:name/run",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PATCH /wp-abilities/v1/abilities/{name}/run"
+        },
+        {
+          "info": {
+            "name": "DELETE /wp-abilities/v1/abilities/{name}/run",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities/:name/run",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "input",
+                "value": "",
+                "type": "query",
+                "description": "Input parameters for the ability execution."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /wp-abilities/v1/abilities/{name}/run"
+        },
+        {
+          "info": {
+            "name": "GET /wp-abilities/v1/abilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to be returned in result set."
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to abilities in specific ability category."
+              }
+            ]
+          },
+          "docs": "GET /wp-abilities/v1/abilities"
+        },
+        {
+          "info": {
+            "name": "GET /wp-abilities/v1/abilities/{name}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-abilities/v1/abilities/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /wp-abilities/v1/abilities/{name}"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

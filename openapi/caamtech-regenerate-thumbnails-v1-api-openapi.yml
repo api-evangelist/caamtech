@@ -1,0 +1,540 @@
+openapi: 3.2.0
+info:
+  title: CaaMTech WordPress REST Regenerate Thumbnails/v1 API
+  version: wp/v2
+  summary: The public WordPress REST API served by caam.tech.
+  description: 'Machine-readable description of the REST API that caam.tech serves at /wp-json/. CaaMTech publishes no developer program and no product API; this is the standard WordPress REST API exposed by the company web site, which does make the company''s published research updates, pages, categories and media programmatically readable without credentials.
+
+
+    PROVENANCE: this document was DERIVED by API Evangelist from the discovery document the site itself publishes at https://caam.tech/wp-json/ (saved verbatim alongside as caamtech-wordpress-rest-routes-original.json). Every path, method, parameter name, type, enum and default below is copied from that document. CaaMTech did not author or publish this OpenAPI. Response schemas are not described in the WordPress discovery document and are therefore left open rather than invented.'
+  x-provenance:
+    method: derived
+    source: https://caam.tech/wp-json/
+    derived_from: openapi/caamtech-wordpress-rest-routes-original.json
+    derived_by: API Evangelist enrichment pipeline
+    generated: '2026-08-08'
+    provider_authored: false
+servers:
+- url: https://caam.tech/wp-json
+  description: WordPress REST API root on caam.tech
+tags:
+- name: regenerate-thumbnails/v1
+paths:
+  /regenerate-thumbnails/v1:
+    get:
+      operationId: get_regenerate_thumbnails_v1
+      summary: GET /regenerate-thumbnails/v1
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: namespace
+        in: query
+        required: false
+        schema:
+          default: regenerate-thumbnails/v1
+      - name: context
+        in: query
+        required: false
+        schema:
+          default: view
+  /regenerate-thumbnails/v1/regenerate/{id}:
+    get:
+      operationId: get_regenerate_thumbnails_v1_regenerate_id
+      summary: GET /regenerate-thumbnails/v1/regenerate/{id}
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: only_regenerate_missing_thumbnails
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+        description: Whether to only regenerate missing thumbnails. It's faster with this enabled.
+      - name: delete_unregistered_thumbnail_files
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to delete any old, now unregistered thumbnail files.
+      - name: update_usages_in_posts
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+        description: Whether to update the image tags in any posts that make use of this attachment.
+      - name: update_usages_in_posts_post_type
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+        description: The types of posts to update. Defaults to all public post types.
+      - name: update_usages_in_posts_post_ids
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+        description: Specific post IDs to update rather than any posts that use this attachment.
+      - name: update_usages_in_posts_posts_per_loop
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+        description: Posts to process per loop. This is to control memory usage and you likely don't need to adjust this.
+    post:
+      operationId: post_regenerate_thumbnails_v1_regenerate_id
+      summary: POST /regenerate-thumbnails/v1/regenerate/{id}
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                only_regenerate_missing_thumbnails:
+                  type: boolean
+                  default: true
+                  description: Whether to only regenerate missing thumbnails. It's faster with this enabled.
+                delete_unregistered_thumbnail_files:
+                  type: boolean
+                  default: false
+                  description: Whether to delete any old, now unregistered thumbnail files.
+                update_usages_in_posts:
+                  type: boolean
+                  default: true
+                  description: Whether to update the image tags in any posts that make use of this attachment.
+                update_usages_in_posts_post_type:
+                  type: array
+                  default: []
+                  description: The types of posts to update. Defaults to all public post types.
+                update_usages_in_posts_post_ids:
+                  type: array
+                  default: []
+                  description: Specific post IDs to update rather than any posts that use this attachment.
+                update_usages_in_posts_posts_per_loop:
+                  type: integer
+                  default: 10
+                  description: Posts to process per loop. This is to control memory usage and you likely don't need to adjust this.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+    put:
+      operationId: put_regenerate_thumbnails_v1_regenerate_id
+      summary: PUT /regenerate-thumbnails/v1/regenerate/{id}
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                only_regenerate_missing_thumbnails:
+                  type: boolean
+                  default: true
+                  description: Whether to only regenerate missing thumbnails. It's faster with this enabled.
+                delete_unregistered_thumbnail_files:
+                  type: boolean
+                  default: false
+                  description: Whether to delete any old, now unregistered thumbnail files.
+                update_usages_in_posts:
+                  type: boolean
+                  default: true
+                  description: Whether to update the image tags in any posts that make use of this attachment.
+                update_usages_in_posts_post_type:
+                  type: array
+                  default: []
+                  description: The types of posts to update. Defaults to all public post types.
+                update_usages_in_posts_post_ids:
+                  type: array
+                  default: []
+                  description: Specific post IDs to update rather than any posts that use this attachment.
+                update_usages_in_posts_posts_per_loop:
+                  type: integer
+                  default: 10
+                  description: Posts to process per loop. This is to control memory usage and you likely don't need to adjust this.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+    patch:
+      operationId: patch_regenerate_thumbnails_v1_regenerate_id
+      summary: PATCH /regenerate-thumbnails/v1/regenerate/{id}
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                only_regenerate_missing_thumbnails:
+                  type: boolean
+                  default: true
+                  description: Whether to only regenerate missing thumbnails. It's faster with this enabled.
+                delete_unregistered_thumbnail_files:
+                  type: boolean
+                  default: false
+                  description: Whether to delete any old, now unregistered thumbnail files.
+                update_usages_in_posts:
+                  type: boolean
+                  default: true
+                  description: Whether to update the image tags in any posts that make use of this attachment.
+                update_usages_in_posts_post_type:
+                  type: array
+                  default: []
+                  description: The types of posts to update. Defaults to all public post types.
+                update_usages_in_posts_post_ids:
+                  type: array
+                  default: []
+                  description: Specific post IDs to update rather than any posts that use this attachment.
+                update_usages_in_posts_posts_per_loop:
+                  type: integer
+                  default: 10
+                  description: Posts to process per loop. This is to control memory usage and you likely don't need to adjust this.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+    delete:
+      operationId: delete_regenerate_thumbnails_v1_regenerate_id
+      summary: DELETE /regenerate-thumbnails/v1/regenerate/{id}
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: only_regenerate_missing_thumbnails
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+        description: Whether to only regenerate missing thumbnails. It's faster with this enabled.
+      - name: delete_unregistered_thumbnail_files
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to delete any old, now unregistered thumbnail files.
+      - name: update_usages_in_posts
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+        description: Whether to update the image tags in any posts that make use of this attachment.
+      - name: update_usages_in_posts_post_type
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+        description: The types of posts to update. Defaults to all public post types.
+      - name: update_usages_in_posts_post_ids
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+        description: Specific post IDs to update rather than any posts that use this attachment.
+      - name: update_usages_in_posts_posts_per_loop
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+        description: Posts to process per loop. This is to control memory usage and you likely don't need to adjust this.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+  /regenerate-thumbnails/v1/attachmentinfo/{id}:
+    get:
+      operationId: get_regenerate_thumbnails_v1_attachmentinfo_id
+      summary: GET /regenerate-thumbnails/v1/attachmentinfo/{id}
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /regenerate-thumbnails/v1/featuredimages:
+    get:
+      operationId: get_regenerate_thumbnails_v1_featuredimages
+      summary: GET /regenerate-thumbnails/v1/featuredimages
+      tags:
+      - regenerate-thumbnails/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+components:
+  schemas:
+    WPRestError:
+      type: object
+      description: The WordPress REST API error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_forbidden
+          - rest_no_route
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The site advertises the authorization endpoint at https://caam.tech/wp-admin/authorize-application.php
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: wordpress_logged_in
+      description: WordPress logged-in cookie plus an X-WP-Nonce header (first-party only).

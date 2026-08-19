@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Wp Block Editor/v1 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "wp-block-editor/v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /wp-block-editor/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-block-editor/v1",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /wp-block-editor/v1"
+        },
+        {
+          "info": {
+            "name": "GET /wp-block-editor/v1/url-details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-block-editor/v1/url-details",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The URL to process."
+              }
+            ]
+          },
+          "docs": "GET /wp-block-editor/v1/url-details"
+        },
+        {
+          "info": {
+            "name": "GET /wp-block-editor/v1/export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-block-editor/v1/export"
+          },
+          "docs": "GET /wp-block-editor/v1/export"
+        },
+        {
+          "info": {
+            "name": "GET /wp-block-editor/v1/navigation-fallback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wp-block-editor/v1/navigation-fallback"
+          },
+          "docs": "GET /wp-block-editor/v1/navigation-fallback"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

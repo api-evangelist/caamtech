@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Oembed/1.0 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "oembed/1.0",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /oembed/1.0",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/oembed/1.0",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /oembed/1.0"
+        },
+        {
+          "info": {
+            "name": "GET /oembed/1.0/embed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/oembed/1.0/embed",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The URL of the resource for which to fetch oEmbed data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxwidth",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /oembed/1.0/embed"
+        },
+        {
+          "info": {
+            "name": "GET /oembed/1.0/proxy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/oembed/1.0/proxy",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The URL of the resource for which to fetch oEmbed data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The oEmbed format to use."
+              },
+              {
+                "name": "maxwidth",
+                "value": "",
+                "type": "query",
+                "description": "The maximum width of the embed frame in pixels."
+              },
+              {
+                "name": "maxheight",
+                "value": "",
+                "type": "query",
+                "description": "The maximum height of the embed frame in pixels."
+              },
+              {
+                "name": "discover",
+                "value": "",
+                "type": "query",
+                "description": "Whether to perform an oEmbed discovery request for unsanctioned providers."
+              }
+            ]
+          },
+          "docs": "GET /oembed/1.0/proxy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

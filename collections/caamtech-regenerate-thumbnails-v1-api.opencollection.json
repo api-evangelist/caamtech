@@ -1,0 +1,278 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Regenerate Thumbnails/v1 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "regenerate-thumbnails/v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /regenerate-thumbnails/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /regenerate-thumbnails/v1"
+        },
+        {
+          "info": {
+            "name": "GET /regenerate-thumbnails/v1/regenerate/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/regenerate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "only_regenerate_missing_thumbnails",
+                "value": "",
+                "type": "query",
+                "description": "Whether to only regenerate missing thumbnails. It's faster with this enabled."
+              },
+              {
+                "name": "delete_unregistered_thumbnail_files",
+                "value": "",
+                "type": "query",
+                "description": "Whether to delete any old, now unregistered thumbnail files."
+              },
+              {
+                "name": "update_usages_in_posts",
+                "value": "",
+                "type": "query",
+                "description": "Whether to update the image tags in any posts that make use of this attachment."
+              },
+              {
+                "name": "update_usages_in_posts_post_type",
+                "value": "",
+                "type": "query",
+                "description": "The types of posts to update. Defaults to all public post types."
+              },
+              {
+                "name": "update_usages_in_posts_post_ids",
+                "value": "",
+                "type": "query",
+                "description": "Specific post IDs to update rather than any posts that use this attachment."
+              },
+              {
+                "name": "update_usages_in_posts_posts_per_loop",
+                "value": "",
+                "type": "query",
+                "description": "Posts to process per loop. This is to control memory usage and you likely don't need to adjust this."
+              }
+            ]
+          },
+          "docs": "GET /regenerate-thumbnails/v1/regenerate/{id}"
+        },
+        {
+          "info": {
+            "name": "POST /regenerate-thumbnails/v1/regenerate/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/regenerate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /regenerate-thumbnails/v1/regenerate/{id}"
+        },
+        {
+          "info": {
+            "name": "PUT /regenerate-thumbnails/v1/regenerate/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/regenerate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /regenerate-thumbnails/v1/regenerate/{id}"
+        },
+        {
+          "info": {
+            "name": "PATCH /regenerate-thumbnails/v1/regenerate/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/regenerate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PATCH /regenerate-thumbnails/v1/regenerate/{id}"
+        },
+        {
+          "info": {
+            "name": "DELETE /regenerate-thumbnails/v1/regenerate/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/regenerate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "only_regenerate_missing_thumbnails",
+                "value": "",
+                "type": "query",
+                "description": "Whether to only regenerate missing thumbnails. It's faster with this enabled."
+              },
+              {
+                "name": "delete_unregistered_thumbnail_files",
+                "value": "",
+                "type": "query",
+                "description": "Whether to delete any old, now unregistered thumbnail files."
+              },
+              {
+                "name": "update_usages_in_posts",
+                "value": "",
+                "type": "query",
+                "description": "Whether to update the image tags in any posts that make use of this attachment."
+              },
+              {
+                "name": "update_usages_in_posts_post_type",
+                "value": "",
+                "type": "query",
+                "description": "The types of posts to update. Defaults to all public post types."
+              },
+              {
+                "name": "update_usages_in_posts_post_ids",
+                "value": "",
+                "type": "query",
+                "description": "Specific post IDs to update rather than any posts that use this attachment."
+              },
+              {
+                "name": "update_usages_in_posts_posts_per_loop",
+                "value": "",
+                "type": "query",
+                "description": "Posts to process per loop. This is to control memory usage and you likely don't need to adjust this."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /regenerate-thumbnails/v1/regenerate/{id}"
+        },
+        {
+          "info": {
+            "name": "GET /regenerate-thumbnails/v1/attachmentinfo/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/attachmentinfo/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /regenerate-thumbnails/v1/attachmentinfo/{id}"
+        },
+        {
+          "info": {
+            "name": "GET /regenerate-thumbnails/v1/featuredimages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/regenerate-thumbnails/v1/featuredimages",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to be returned in result set."
+              }
+            ]
+          },
+          "docs": "GET /regenerate-thumbnails/v1/featuredimages"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

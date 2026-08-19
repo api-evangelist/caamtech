@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Objectcache/v1 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "objectcache/v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /objectcache/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/objectcache/v1",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /objectcache/v1"
+        },
+        {
+          "info": {
+            "name": "GET /objectcache/v1/analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/objectcache/v1/analytics",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to be returned in result set."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The interval in seconds."
+              }
+            ]
+          },
+          "docs": "GET /objectcache/v1/analytics"
+        },
+        {
+          "info": {
+            "name": "GET /objectcache/v1/groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/objectcache/v1/groups"
+          },
+          "docs": "GET /objectcache/v1/groups"
+        },
+        {
+          "info": {
+            "name": "GET /objectcache/v1/latency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/objectcache/v1/latency"
+          },
+          "docs": "GET /objectcache/v1/latency"
+        },
+        {
+          "info": {
+            "name": "GET /objectcache/v1/options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/objectcache/v1/options",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "query",
+                "description": "The update channel acts as a \"minimum stability\", meaning that using the Alpha channel will also show the latest Beta releases and so on, whichever has the highest version number. Using an update channel other than Stable may break your site."
+              },
+              {
+                "name": "flushlog",
+                "value": "",
+                "type": "query",
+                "description": "Whether to keep a log of cache flushes. Ignored when debug mode is enabled."
+              }
+            ]
+          },
+          "docs": "GET /objectcache/v1/options"
+        },
+        {
+          "info": {
+            "name": "POST /objectcache/v1/options",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/objectcache/v1/options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /objectcache/v1/options"
+        },
+        {
+          "info": {
+            "name": "PUT /objectcache/v1/options",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caam.tech/wp-json/objectcache/v1/options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /objectcache/v1/options"
+        },
+        {
+          "info": {
+            "name": "PATCH /objectcache/v1/options",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://caam.tech/wp-json/objectcache/v1/options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PATCH /objectcache/v1/options"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

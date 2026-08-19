@@ -2,14 +2,12 @@ generated: '2026-08-08'
 method: probed
 status: published
 source: https://caam.tech/wp-json/mcp
-notes: >-
-  CaaMTech does not market or document an MCP server. The endpoint below is a real, deployed
-  WordPress MCP Adapter route that the site's own REST discovery document advertises under the
-  `mcp` namespace. It is live but authenticated: an anonymous JSON-RPC `tools/list` returns
-  HTTP 401 `rest_forbidden`, so the tool list and per-tool inputSchema could not be read and
-  are NOT recorded here. Any tools it exposes are almost certainly the WordPress Abilities
-  API abilities registered on the site (the `wp-abilities/v1` namespace is also present),
-  not CaaMTech-authored tools.
+notes: 'CaaMTech does not market or document an MCP server. The endpoint below is a real, deployed WordPress
+  MCP Adapter route that the site''s own REST discovery document advertises under the `mcp` namespace.
+  It is live but authenticated: an anonymous JSON-RPC `tools/list` returns HTTP 401 `rest_forbidden`,
+  so the tool list and per-tool inputSchema could not be read and are NOT recorded here. Any tools it
+  exposes are almost certainly the WordPress Abilities API abilities registered on the site (the `wp-abilities/v1`
+  namespace is also present), not CaaMTech-authored tools.'
 server:
   name: mcp-adapter-default-server
   transport: http
@@ -22,7 +20,7 @@ server:
   discovery: https://caam.tech/wp-json/mcp
 auth:
   required: true
-  observed: 'HTTP 401 {"code":"rest_forbidden","message":"Sorry, you are not allowed to do that."}'
+  observed: HTTP 401 {"code":"rest_forbidden","message":"Sorry, you are not allowed to do that."}
   schemes:
   - WordPress Application Password (HTTP Basic)
   - WordPress logged-in cookie + X-WP-Nonce
@@ -31,14 +29,14 @@ auth:
     well_known_oauth_protected_resource: 404
 tools: []
 tools_status: gated
-tools_note: >-
-  Not fabricated. tools/list requires authentication; no anonymous tool manifest is published
+tools_note: Not fabricated. tools/list requires authentication; no anonymous tool manifest is published
   and no llms.txt lists tools. Reading the real tool set requires authenticated introspection.
 related_surfaces:
 - namespace: wp-abilities/v1
   url: https://caam.tech/wp-json/wp-abilities/v1
   status: 200
-  note: WordPress Abilities API index — readable anonymously; the likely backing registry for the MCP tools.
+  note: WordPress Abilities API index — readable anonymously; the likely backing registry for the MCP
+    tools.
 x-evidence:
 - fetched: '2026-08-08'
   url: https://caam.tech/wp-json/mcp
@@ -56,3 +54,10 @@ x-evidence:
 - fetched: '2026-08-08'
   url: https://caam.tech/.well-known/oauth-protected-resource
   http_status: 404
+deployment:
+  mode: remote
+  endpoint: https://caam.tech/wp-json/mcp/mcp-adapter-default-server
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

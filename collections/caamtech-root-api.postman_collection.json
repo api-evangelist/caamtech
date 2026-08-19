@@ -1,0 +1,496 @@
+{
+  "item": [
+    {
+      "id": "30a2bb1a-83eb-482c-b67c-29301b75c507",
+      "name": "root",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "804084ed-32ad-4647-b358-2baa7d0322c6",
+          "name": "GET /",
+          "request": {
+            "name": "GET /",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c64b8b2-032b-44df-8ecd-44cb1fe3b5cb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4666c816-8b4c-45f9-9faa-214772d0a967",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9692\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41ef75d1-847e-4ebd-8495-a89a1d49687e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9692\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d35e9ed8-a862-41a6-89fd-87faaddf6f99",
+              "name": "No route was found matching the URL and request method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9692\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1e1be14-1c36-40ea-9aae-4bff090de211",
+          "name": "POST /batch/v1",
+          "request": {
+            "name": "POST /batch/v1",
+            "description": {},
+            "url": {
+              "path": [
+                "batch",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": \"string\"\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\"\n      }\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": 6533,\n        \"key_1\": 1658.7366926854008\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\",\n        \"key_2\": \"<string,array>\"\n      }\n    }\n  ],\n  \"validation\": \"normal\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e3dfddb-eadd-4fb3-9700-10f349694561",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\",\n        \"key_2\": \"<string,array>\",\n        \"key_3\": \"<string,array>\"\n      }\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": 228.47669347408228\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\"\n      }\n    }\n  ],\n  \"validation\": \"normal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b46b2ed-9505-4e0d-a039-2b6733e6b3e6",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\",\n        \"key_2\": \"<string,array>\",\n        \"key_3\": \"<string,array>\"\n      }\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": 228.47669347408228\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\"\n      }\n    }\n  ],\n  \"validation\": \"normal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9692\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8b0d6b1-c1a2-4b81-91bc-491d5a9e00f5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\",\n        \"key_2\": \"<string,array>\",\n        \"key_3\": \"<string,array>\"\n      }\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": 228.47669347408228\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\"\n      }\n    }\n  ],\n  \"validation\": \"normal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9692\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b71c71d-441e-4369-a5af-d2f34fc53a7d",
+              "name": "No route was found matching the URL and request method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\",\n        \"key_2\": \"<string,array>\",\n        \"key_3\": \"<string,array>\"\n      }\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"<string>\",\n      \"body\": {\n        \"key_0\": 228.47669347408228\n      },\n      \"headers\": {\n        \"key_0\": \"<string,array>\",\n        \"key_1\": \"<string,array>\"\n      }\n    }\n  ],\n  \"validation\": \"normal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9692\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://caam.tech/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b34b9157-be6b-4e0f-b85a-da1b4d18656e",
+    "name": "CaaMTech WordPress REST Root API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Machine-readable description of the REST API that caam.tech serves at /wp-json/. CaaMTech publishes no developer program and no product API; this is the standard WordPress REST API exposed by the company web site, which does make the company's published research updates, pages, categories and media programmatically readable without credentials.\n\nPROVENANCE: this document was DERIVED by API Evangelist from the discovery document the site itself publishes at https://caam.tech/wp-json/ (saved verbatim alongside as caamtech-wordpress-rest-routes-original.json). Every path, method, parameter name, type, enum and default below is copied from that document. CaaMTech did not author or publish this OpenAPI. Response schemas are not described in the WordPress discovery document and are therefore left open rather than invented.",
+      "type": "text/plain"
+    }
+  }
+}

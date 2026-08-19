@@ -1,0 +1,355 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Akismet/v1 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "akismet/v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /akismet/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/akismet/v1",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /akismet/v1"
+        },
+        {
+          "info": {
+            "name": "GET /akismet/v1/key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/akismet/v1/key"
+          },
+          "docs": "GET /akismet/v1/key"
+        },
+        {
+          "info": {
+            "name": "POST /akismet/v1/key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/akismet/v1/key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /akismet/v1/key"
+        },
+        {
+          "info": {
+            "name": "PUT /akismet/v1/key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caam.tech/wp-json/akismet/v1/key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /akismet/v1/key"
+        },
+        {
+          "info": {
+            "name": "PATCH /akismet/v1/key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://caam.tech/wp-json/akismet/v1/key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PATCH /akismet/v1/key"
+        },
+        {
+          "info": {
+            "name": "DELETE /akismet/v1/key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://caam.tech/wp-json/akismet/v1/key",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /akismet/v1/key"
+        },
+        {
+          "info": {
+            "name": "GET /akismet/v1/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/akismet/v1/settings"
+          },
+          "docs": "GET /akismet/v1/settings"
+        },
+        {
+          "info": {
+            "name": "POST /akismet/v1/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/akismet/v1/settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /akismet/v1/settings"
+        },
+        {
+          "info": {
+            "name": "PUT /akismet/v1/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caam.tech/wp-json/akismet/v1/settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /akismet/v1/settings"
+        },
+        {
+          "info": {
+            "name": "PATCH /akismet/v1/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://caam.tech/wp-json/akismet/v1/settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PATCH /akismet/v1/settings"
+        },
+        {
+          "info": {
+            "name": "GET /akismet/v1/stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/akismet/v1/stats",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The time period for which to retrieve stats. Options: 60-days, 6-months, all"
+              }
+            ]
+          },
+          "docs": "GET /akismet/v1/stats"
+        },
+        {
+          "info": {
+            "name": "GET /akismet/v1/stats/{interval}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/akismet/v1/stats/:interval",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /akismet/v1/stats/{interval}"
+        },
+        {
+          "info": {
+            "name": "GET /akismet/v1/alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/akismet/v1/alert",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "A 12-character Akismet API key. Available at akismet.com/account"
+              }
+            ]
+          },
+          "docs": "GET /akismet/v1/alert"
+        },
+        {
+          "info": {
+            "name": "POST /akismet/v1/alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/akismet/v1/alert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /akismet/v1/alert"
+        },
+        {
+          "info": {
+            "name": "PUT /akismet/v1/alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://caam.tech/wp-json/akismet/v1/alert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /akismet/v1/alert"
+        },
+        {
+          "info": {
+            "name": "PATCH /akismet/v1/alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://caam.tech/wp-json/akismet/v1/alert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PATCH /akismet/v1/alert"
+        },
+        {
+          "info": {
+            "name": "DELETE /akismet/v1/alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://caam.tech/wp-json/akismet/v1/alert",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "A 12-character Akismet API key. Available at akismet.com/account"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /akismet/v1/alert"
+        },
+        {
+          "info": {
+            "name": "POST /akismet/v1/webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/akismet/v1/webhook",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /akismet/v1/webhook"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

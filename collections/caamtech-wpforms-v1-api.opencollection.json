@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST Wpforms/v1 API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "wpforms/v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /wpforms/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wpforms/v1",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /wpforms/v1"
+        },
+        {
+          "info": {
+            "name": "GET /wpforms/v1/setup-wizard/hydrate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/hydrate"
+          },
+          "docs": "GET /wpforms/v1/setup-wizard/hydrate"
+        },
+        {
+          "info": {
+            "name": "POST /wpforms/v1/setup-wizard/update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/update",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /wpforms/v1/setup-wizard/update"
+        },
+        {
+          "info": {
+            "name": "POST /wpforms/v1/setup-wizard/install-plugins",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/install-plugins",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /wpforms/v1/setup-wizard/install-plugins"
+        },
+        {
+          "info": {
+            "name": "POST /wpforms/v1/setup-wizard/complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/complete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /wpforms/v1/setup-wizard/complete"
+        },
+        {
+          "info": {
+            "name": "POST /wpforms/v1/setup-wizard/stripe/connect-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/stripe/connect-url",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /wpforms/v1/setup-wizard/stripe/connect-url"
+        },
+        {
+          "info": {
+            "name": "GET /wpforms/v1/setup-wizard/license/key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/license/key"
+          },
+          "docs": "GET /wpforms/v1/setup-wizard/license/key"
+        },
+        {
+          "info": {
+            "name": "POST /wpforms/v1/setup-wizard/license/verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/wpforms/v1/setup-wizard/license/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /wpforms/v1/setup-wizard/license/verify"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

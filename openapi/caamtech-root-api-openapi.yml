@@ -1,0 +1,163 @@
+openapi: 3.2.0
+info:
+  title: CaaMTech WordPress REST Root API
+  version: wp/v2
+  summary: The public WordPress REST API served by caam.tech.
+  description: 'Machine-readable description of the REST API that caam.tech serves at /wp-json/. CaaMTech publishes no developer program and no product API; this is the standard WordPress REST API exposed by the company web site, which does make the company''s published research updates, pages, categories and media programmatically readable without credentials.
+
+
+    PROVENANCE: this document was DERIVED by API Evangelist from the discovery document the site itself publishes at https://caam.tech/wp-json/ (saved verbatim alongside as caamtech-wordpress-rest-routes-original.json). Every path, method, parameter name, type, enum and default below is copied from that document. CaaMTech did not author or publish this OpenAPI. Response schemas are not described in the WordPress discovery document and are therefore left open rather than invented.'
+  x-provenance:
+    method: derived
+    source: https://caam.tech/wp-json/
+    derived_from: openapi/caamtech-wordpress-rest-routes-original.json
+    derived_by: API Evangelist enrichment pipeline
+    generated: '2026-08-08'
+    provider_authored: false
+servers:
+- url: https://caam.tech/wp-json
+  description: WordPress REST API root on caam.tech
+tags:
+- name: root
+paths:
+  /:
+    get:
+      operationId: get_root
+      summary: GET /
+      tags:
+      - root
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          default: view
+  /batch/v1:
+    post:
+      operationId: post_batch_v1
+      summary: POST /batch/v1
+      tags:
+      - root
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                validation:
+                  type: string
+                  enum:
+                  - require-all-validate
+                  - normal
+                  default: normal
+                requests:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      method:
+                        type: string
+                        enum:
+                        - POST
+                        - PUT
+                        - PATCH
+                        - DELETE
+                        default: POST
+                      path:
+                        type: string
+                        required: true
+                      body:
+                        type: object
+                        properties: []
+                        additionalProperties: true
+                      headers:
+                        type: object
+                        properties: []
+                        additionalProperties:
+                          type:
+                          - string
+                          - array
+                          items:
+                            type: string
+              required:
+              - requests
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+components:
+  schemas:
+    WPRestError:
+      type: object
+      description: The WordPress REST API error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_forbidden
+          - rest_no_route
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The site advertises the authorization endpoint at https://caam.tech/wp-admin/authorize-application.php
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: wordpress_logged_in
+      description: WordPress logged-in cookie plus an X-WP-Nonce header (first-party only).

@@ -1,0 +1,419 @@
+openapi: 3.2.0
+info:
+  title: CaaMTech WordPress REST Objectcache/v1 API
+  version: wp/v2
+  summary: The public WordPress REST API served by caam.tech.
+  description: 'Machine-readable description of the REST API that caam.tech serves at /wp-json/. CaaMTech publishes no developer program and no product API; this is the standard WordPress REST API exposed by the company web site, which does make the company''s published research updates, pages, categories and media programmatically readable without credentials.
+
+
+    PROVENANCE: this document was DERIVED by API Evangelist from the discovery document the site itself publishes at https://caam.tech/wp-json/ (saved verbatim alongside as caamtech-wordpress-rest-routes-original.json). Every path, method, parameter name, type, enum and default below is copied from that document. CaaMTech did not author or publish this OpenAPI. Response schemas are not described in the WordPress discovery document and are therefore left open rather than invented.'
+  x-provenance:
+    method: derived
+    source: https://caam.tech/wp-json/
+    derived_from: openapi/caamtech-wordpress-rest-routes-original.json
+    derived_by: API Evangelist enrichment pipeline
+    generated: '2026-08-08'
+    provider_authored: false
+servers:
+- url: https://caam.tech/wp-json
+  description: WordPress REST API root on caam.tech
+tags:
+- name: objectcache/v1
+paths:
+  /objectcache/v1:
+    get:
+      operationId: get_objectcache_v1
+      summary: GET /objectcache/v1
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: namespace
+        in: query
+        required: false
+        schema:
+          default: objectcache/v1
+      - name: context
+        in: query
+        required: false
+        schema:
+          default: view
+  /objectcache/v1/analytics:
+    get:
+      operationId: get_objectcache_v1_analytics
+      summary: GET /objectcache/v1/analytics
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - raw
+          - compute
+          default: compute
+        description: Scope under which the request is made; determines fields present in response.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 30
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 60
+          minimum: 1
+        description: The interval in seconds.
+  /objectcache/v1/groups:
+    get:
+      operationId: get_objectcache_v1_groups
+      summary: GET /objectcache/v1/groups
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /objectcache/v1/latency:
+    get:
+      operationId: get_objectcache_v1_latency
+      summary: GET /objectcache/v1/latency
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /objectcache/v1/options:
+    get:
+      operationId: get_objectcache_v1_options
+      summary: GET /objectcache/v1/options
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: channel
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - stable
+          - rc
+          - beta
+          - alpha
+          - dev
+        description: The update channel acts as a "minimum stability", meaning that using the Alpha channel will also show the latest Beta releases and so on, whichever has the highest version number. Using an update channel other than Stable may break your site.
+      - name: flushlog
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Whether to keep a log of cache flushes. Ignored when debug mode is enabled.
+    post:
+      operationId: post_objectcache_v1_options
+      summary: POST /objectcache/v1/options
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channel:
+                  type: string
+                  enum:
+                  - stable
+                  - rc
+                  - beta
+                  - alpha
+                  - dev
+                  description: The update channel acts as a "minimum stability", meaning that using the Alpha channel will also show the latest Beta releases and so on, whichever has the highest version number. Using an update channel other than Stable may break your site.
+                flushlog:
+                  type: boolean
+                  description: Whether to keep a log of cache flushes. Ignored when debug mode is enabled.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+    put:
+      operationId: put_objectcache_v1_options
+      summary: PUT /objectcache/v1/options
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channel:
+                  type: string
+                  enum:
+                  - stable
+                  - rc
+                  - beta
+                  - alpha
+                  - dev
+                  description: The update channel acts as a "minimum stability", meaning that using the Alpha channel will also show the latest Beta releases and so on, whichever has the highest version number. Using an update channel other than Stable may break your site.
+                flushlog:
+                  type: boolean
+                  description: Whether to keep a log of cache flushes. Ignored when debug mode is enabled.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+    patch:
+      operationId: patch_objectcache_v1_options
+      summary: PATCH /objectcache/v1/options
+      tags:
+      - objectcache/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channel:
+                  type: string
+                  enum:
+                  - stable
+                  - rc
+                  - beta
+                  - alpha
+                  - dev
+                  description: The update channel acts as a "minimum stability", meaning that using the Alpha channel will also show the latest Beta releases and so on, whichever has the highest version number. Using an update channel other than Stable may break your site.
+                flushlog:
+                  type: boolean
+                  description: Whether to keep a log of cache flushes. Ignored when debug mode is enabled.
+      security:
+      - applicationPassword: []
+      - cookieAuth: []
+components:
+  schemas:
+    WPRestError:
+      type: object
+      description: The WordPress REST API error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_forbidden
+          - rest_no_route
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The site advertises the authorization endpoint at https://caam.tech/wp-admin/authorize-application.php
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: wordpress_logged_in
+      description: WordPress logged-in cookie plus an X-WP-Nonce header (first-party only).

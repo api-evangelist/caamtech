@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CaaMTech WordPress REST MCP API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mcp",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /mcp",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/mcp",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET /mcp"
+        },
+        {
+          "info": {
+            "name": "GET /mcp/mcp-adapter-default-server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://caam.tech/wp-json/mcp/mcp-adapter-default-server"
+          },
+          "docs": "GET /mcp/mcp-adapter-default-server"
+        },
+        {
+          "info": {
+            "name": "POST /mcp/mcp-adapter-default-server",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://caam.tech/wp-json/mcp/mcp-adapter-default-server",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /mcp/mcp-adapter-default-server"
+        },
+        {
+          "info": {
+            "name": "DELETE /mcp/mcp-adapter-default-server",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://caam.tech/wp-json/mcp/mcp-adapter-default-server",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /mcp/mcp-adapter-default-server"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

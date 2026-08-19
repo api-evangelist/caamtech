@@ -1,0 +1,301 @@
+openapi: 3.2.0
+info:
+  title: CaaMTech WordPress REST Wp Site Health/v1 API
+  version: wp/v2
+  summary: The public WordPress REST API served by caam.tech.
+  description: 'Machine-readable description of the REST API that caam.tech serves at /wp-json/. CaaMTech publishes no developer program and no product API; this is the standard WordPress REST API exposed by the company web site, which does make the company''s published research updates, pages, categories and media programmatically readable without credentials.
+
+
+    PROVENANCE: this document was DERIVED by API Evangelist from the discovery document the site itself publishes at https://caam.tech/wp-json/ (saved verbatim alongside as caamtech-wordpress-rest-routes-original.json). Every path, method, parameter name, type, enum and default below is copied from that document. CaaMTech did not author or publish this OpenAPI. Response schemas are not described in the WordPress discovery document and are therefore left open rather than invented.'
+  x-provenance:
+    method: derived
+    source: https://caam.tech/wp-json/
+    derived_from: openapi/caamtech-wordpress-rest-routes-original.json
+    derived_by: API Evangelist enrichment pipeline
+    generated: '2026-08-08'
+    provider_authored: false
+servers:
+- url: https://caam.tech/wp-json
+  description: WordPress REST API root on caam.tech
+tags:
+- name: wp-site-health/v1
+paths:
+  /wp-site-health/v1:
+    get:
+      operationId: get_wp_site_health_v1
+      summary: GET /wp-site-health/v1
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+      parameters:
+      - name: namespace
+        in: query
+        required: false
+        schema:
+          default: wp-site-health/v1
+      - name: context
+        in: query
+        required: false
+        schema:
+          default: view
+  /wp-site-health/v1/tests/background-updates:
+    get:
+      operationId: get_wp_site_health_v1_tests_background_updates
+      summary: GET /wp-site-health/v1/tests/background-updates
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /wp-site-health/v1/tests/loopback-requests:
+    get:
+      operationId: get_wp_site_health_v1_tests_loopback_requests
+      summary: GET /wp-site-health/v1/tests/loopback-requests
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /wp-site-health/v1/tests/https-status:
+    get:
+      operationId: get_wp_site_health_v1_tests_https_status
+      summary: GET /wp-site-health/v1/tests/https-status
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /wp-site-health/v1/tests/dotorg-communication:
+    get:
+      operationId: get_wp_site_health_v1_tests_dotorg_communication
+      summary: GET /wp-site-health/v1/tests/dotorg-communication
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /wp-site-health/v1/tests/authorization-header:
+    get:
+      operationId: get_wp_site_health_v1_tests_authorization_header
+      summary: GET /wp-site-health/v1/tests/authorization-header
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /wp-site-health/v1/directory-sizes:
+    get:
+      operationId: get_wp_site_health_v1_directory_sizes
+      summary: GET /wp-site-health/v1/directory-sizes
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+  /wp-site-health/v1/tests/page-cache:
+    get:
+      operationId: get_wp_site_health_v1_tests_page_cache
+      summary: GET /wp-site-health/v1/tests/page-cache
+      tags:
+      - wp-site-health/v1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema: {}
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+        '404':
+          description: No route was found matching the URL and request method
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPRestError'
+components:
+  schemas:
+    WPRestError:
+      type: object
+      description: The WordPress REST API error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_forbidden
+          - rest_no_route
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The site advertises the authorization endpoint at https://caam.tech/wp-admin/authorize-application.php
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: wordpress_logged_in
+      description: WordPress logged-in cookie plus an X-WP-Nonce header (first-party only).

@@ -1,0 +1,47 @@
+{
+  "provider": "caamtech",
+  "sources": [
+    "caamtech-akismet-v1-api-openapi.yml",
+    "caamtech-mcp-api-openapi.yml",
+    "caamtech-objectcache-v1-api-openapi.yml",
+    "caamtech-oembed-1-0-api-openapi.yml",
+    "caamtech-regenerate-thumbnails-v1-api-openapi.yml",
+    "caamtech-root-api-openapi.yml",
+    "caamtech-wp-abilities-v1-api-openapi.yml",
+    "caamtech-wp-block-editor-v1-api-openapi.yml",
+    "caamtech-wp-site-health-v1-api-openapi.yml",
+    "caamtech-wp-v2-api-openapi.yml",
+    "caamtech-wpforms-v1-api-openapi.yml"
+  ],
+  "outputs": [
+    "caamtech-akismet-v1-api-openapi.yml",
+    "caamtech-mcp-api-openapi.yml",
+    "caamtech-objectcache-v1-api-openapi.yml",
+    "caamtech-oembed-1-0-api-openapi.yml",
+    "caamtech-regenerate-thumbnails-v1-api-openapi.yml",
+    "caamtech-root-api-openapi.yml",
+    "caamtech-wp-abilities-v1-api-openapi.yml",
+    "caamtech-wp-block-editor-v1-api-openapi.yml",
+    "caamtech-wp-site-health-v1-api-openapi.yml",
+    "caamtech-wp-v2-api-openapi.yml",
+    "caamtech-wpforms-v1-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "caamtech-akismet-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-mcp-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-objectcache-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-oembed-1-0-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-regenerate-thumbnails-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-root-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-wp-abilities-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-wp-block-editor-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-wp-site-health-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-wp-v2-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "caamtech-wpforms-v1-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}
