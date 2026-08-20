@@ -49,6 +49,8 @@ apis:
   humanURL: https://caam.tech/
   baseURL: https://caam.tech/wp-json
   tags:
+  - MCP
+  tags_raw:
   - mcp
   properties:
   - type: OpenAPI
@@ -98,6 +100,8 @@ apis:
   humanURL: https://caam.tech/
   baseURL: https://caam.tech/wp-json
   tags:
+  - Root
+  tags_raw:
   - root
   properties:
   - type: OpenAPI
