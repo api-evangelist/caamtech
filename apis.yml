@@ -11,6 +11,17 @@ description: 'CaaMTech is a pharmaceutical drug discovery company in Issaquah, W
   updates, pages and media programmatically readable without credentials, alongside an
   authenticated WordPress MCP adapter endpoint.'
 url: https://raw.githubusercontent.com/api-evangelist/caamtech/refs/heads/main/apis.yml
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 image: https://caam.tech/wp-content/uploads/2019/12/cropped-caamtech-logo-on-green-2400-square.png
 x-type: company
 x-source: harvest:secondary-market
