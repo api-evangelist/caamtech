@@ -1,47 +1,30 @@
-generated: '2026-08-08'
+generated: '2026-09-19'
 method: probed
-source: live probes of https://caam.tech
-host: https://caam.tech
-found: 0
-notes: >-
-  Negative result, recorded as evidence. caam.tech publishes no /.well-known/ discovery
-  documents at all — every canonical path returns HTTP 404 from the WordPress front
-  controller. No `WellKnown`, `SecurityTxt`, `APICatalog` or `AgentCard` pointer is wired in
-  apis.yml, because nothing was found; this file is the record of the probe, not a claim of
-  a surface. The only host in scope is caam.tech — api.caam.tech, docs.caam.tech and
-  developers.caam.tech do not resolve in DNS.
-documents:
-- path: /.well-known/security.txt
-  status: 404
-- path: /security.txt
-  status: 404
-- path: /.well-known/openid-configuration
-  status: 404
-- path: /.well-known/oauth-authorization-server
-  status: 404
-- path: /.well-known/oauth-protected-resource
-  status: 404
-- path: /.well-known/api-catalog
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
-- path: /.well-known/agent-card.json
-  status: 404
-- path: /.well-known/agent.json
-  status: 404
-- path: /.well-known/mcp.json
-  status: 404
-- path: /llms.txt
-  status: 404
-control:
-  note: >-
-    Soft-404 control. The 404s above are real, not a catch-all: the same host answers
-    /wp-json/ with HTTP 200 application/json (204,487 bytes) and /wp-json/wp/v2/posts with
-    HTTP 200 JSON, while an invented /wp-json route is refused rather than answered 200.
-  paths:
-  - {path: /wp-json/, status: 200, content_type: application/json}
-  - {path: /wp-json/wp/v2/notarealroute-xyz, status: 403, content_type: text/html}
-unresolvable_hosts:
-- api.caam.tech
-- docs.caam.tech
-- developers.caam.tech
+hosts:
+- host: https://caam.tech
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: caamtech-caam-oauth-protected-resource.json
+    bytes: 179
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: caamtech-caam-oauth-authorization-server.json
+    bytes: 527
+  path_echo_control: passed
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://caam.tech
+    path: /.well-known/oauth-protected-resource
+    file: caamtech-caam-oauth-protected-resource.json
+  - host: https://caam.tech
+    path: /.well-known/oauth-authorization-server
+    file: caamtech-caam-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

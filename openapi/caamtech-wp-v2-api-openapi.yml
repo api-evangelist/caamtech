@@ -3,10 +3,7 @@ info:
   title: CaaMTech WordPress REST Wp/v2 API
   version: wp/v2
   summary: The public WordPress REST API served by caam.tech.
-  description: 'Machine-readable description of the REST API that caam.tech serves at /wp-json/. CaaMTech publishes no developer program and no product API; this is the standard WordPress REST API exposed by the company web site, which does make the company''s published research updates, pages, categories and media programmatically readable without credentials.
-
-
-    PROVENANCE: this document was DERIVED by API Evangelist from the discovery document the site itself publishes at https://caam.tech/wp-json/ (saved verbatim alongside as caamtech-wordpress-rest-routes-original.json). Every path, method, parameter name, type, enum and default below is copied from that document. CaaMTech did not author or publish this OpenAPI. Response schemas are not described in the WordPress discovery document and are therefore left open rather than invented.'
+  description: Machine-readable description of the REST API that caam.tech serves at /wp-json/.
   x-provenance:
     method: derived
     source: https://caam.tech/wp-json/
