@@ -1,41 +1,20 @@
 {
   "provider": "caamtech",
   "sources": [
-    "_original/caamtech-wordpress-rest-openapi.yml"
+    "caamtech-mcp-api-openapi.yml"
   ],
   "outputs": [
-    "caamtech-akismet-v1-api-openapi.yml",
-    "caamtech-mcp-api-openapi.yml",
-    "caamtech-objectcache-v1-api-openapi.yml",
-    "caamtech-oembed-1-0-api-openapi.yml",
-    "caamtech-regenerate-thumbnails-v1-api-openapi.yml",
-    "caamtech-root-api-openapi.yml",
-    "caamtech-wp-abilities-v1-api-openapi.yml",
-    "caamtech-wp-block-editor-v1-api-openapi.yml",
-    "caamtech-wp-site-health-v1-api-openapi.yml",
-    "caamtech-wp-v2-api-openapi.yml",
-    "caamtech-wpforms-v1-api-openapi.yml"
+    "caamtech-mcp-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [
-    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "caamtech-wordpress-rest-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "caamtech-wordpress-rest-openapi.yml: declared missing tag: root",
-    "apis.yml register: already-registered"
+  "warnings": [
+    "caamtech-mcp-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /mcp get, /mcp/mcp-adapter-default-server delete, /mcp/mcp-adapter-default-server get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
   ],
-  "skipped": [
-    "caamtech-akismet-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-mcp-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-objectcache-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-oembed-1-0-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-regenerate-thumbnails-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-root-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-wp-abilities-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-wp-block-editor-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-wp-site-health-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-wp-v2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "caamtech-wpforms-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "notes": [
+    "caamtech-wordpress-rest-openapi.yml: WordPress site /wp-json spec, not split (roadmap#484)",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apis.yml register: written (+0 apis, 1 total)"
+  ],
+  "skipped": []
 }
