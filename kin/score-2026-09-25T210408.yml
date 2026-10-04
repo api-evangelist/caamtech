@@ -1,34 +1,32 @@
-# Kin Score artifact — caamtech — 2026-09-01T222808
+# Kin Score artifact — caamtech — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: caamtech
-  schema_version: 0.18.0
-  scored_at: '2026-09-01'
-  run_ts: 2026-09-01T222808
-  composite: 15.0
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 14.2
   band: emerging
   facets:
-    discoverability: 68.5
-    contract_quality: 15.8
-    governance: 4.5
-    operational_transparency: 0.0
-    developer_ergonomics: 16.1
-    commercial_clarity: 0.0
+    discoverability: 60.0
+    contract_quality: 12.6
     contract_governance: 4.5
+    operational_transparency: 0.0
+    developer_ergonomics: 25.6
     access_clarity: 0.0
   agent_readiness:
-    score: 33.3
+    score: 36.2
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: false
       reversibility_documented: false
-      mcp_server: verified
-      auth_clarity: bearer
+      mcp_server: platform
+      auth_clarity: served
       idempotency: false
       error_semantics: verified
-      openapi_examples: partial
+      openapi_examples: false
       rate_limit_signal: false
       event_surface_described: false
       agent_skills: derived
@@ -36,22 +34,22 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
-      delegated_identity: false
-      protected_resource_metadata: false
+      delegated_identity: served
+      protected_resource_metadata: verified
       dynamic_client_registration: false
       agentic_commerce: false
   regulatory:
     applies: true
     regime: Health
     regime_id: health
-    score: 21.3
+    score: 13.3
     matched_via: tags
   provenance:
-    mcp: first-party
+    mcp: site-plugin
     skills: derived
     conformance: derived
     contracts:
-      total: 11
-      derived: 11
+      total: 1
+      derived: 1
       coverage: 100.0
       callable: 100.0
